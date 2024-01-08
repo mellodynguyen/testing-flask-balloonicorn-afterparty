@@ -33,6 +33,7 @@ class PartyTests(unittest.TestCase):
                                   follow_redirects=True)
         # FIXME: Once we RSVP, we should see the party details, but
         # not the RSVP form
+        self.assertIn(b"Yay!", result.data)
         self.assertNotIn(b"Please RSVP", result.data)
         self.assertIn(b"Party Details", result.data)
         # print("FIXME")
@@ -67,7 +68,7 @@ class PartyTestsDatabase(unittest.TestCase):
         
         self.assertIn(b"Monopoly", result.data)
         # self.assertIn(b"Tic Tac Toe", result.data)
-        print("FIXME")
+        
 
 
 if __name__ == "__main__":
